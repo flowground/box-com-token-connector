@@ -1,0 +1,68 @@
+{
+    "title": "Box 2.0 OAuth2 Token",
+    "description": "The Box Token API provides methods to retrieve an access token and revoke an access token. An access token is a data string that enables Box to verify that a request belongs to an authorized session. In the normal order of operations you will being by requesting authentication from the Box.",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/box.com/token/2.0/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://api.box.com/oauth2",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "revokeToken": {
+            "main": "./lib/actions/revokeToken.js",
+            "title": "Revoke token",
+            "description": "This is the URL of the Box revoke endpoint, the endpoint that revokes access tokens, or to put it another way, the endpoint that ends sessions, logging users out.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/revokeToken.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "generateAccessToken": {
+            "main": "./lib/actions/generateAccessToken.js",
+            "title": "Generate Access token",
+            "description": "This is the URL of the Box token endpoint, the endpoint that returns access tokens. An access token is a data string that enables Box to verify that a request belongs to an authorized session.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/generateAccessToken.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

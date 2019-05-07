@@ -1,0 +1,55 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "grant_type": {
+                    "type": "string"
+                },
+                "code": {
+                    "description": "The authorization code returned by Box in response to a successfull authentication request.",
+                    "type": "string"
+                },
+                "client_id": {
+                    "description": "The client ID of the application requesting authentication.",
+                    "type": "string"
+                },
+                "client_secret": {
+                    "description": "The client secret of the application requesting authentication.",
+                    "type": "string"
+                },
+                "refresh_token": {
+                    "description": "The refresh_token that is used to get the new access_token",
+                    "type": "string"
+                },
+                "subject_token": {
+                    "description": "This is the primary/secondary application token you will exchange for the file token.",
+                    "type": "string"
+                },
+                "subject_token_type": {
+                    "description": "The subject token type is urn:ietf:params:oauth:token-type:access_token",
+                    "type": "string"
+                },
+                "resource": {
+                    "description": "Full url path to the file that the token should be generated for example, https://api.box.com/2.0/files/{file_id}",
+                    "type": "string"
+                },
+                "actor_token": {
+                    "description": "Full url path to the file that the token should be generated for example, https://api.box.com/2.0/files/{file_id}",
+                    "type": "string"
+                },
+                "actor_token_type": {
+                    "description": "Full url path to the file that the token should be generated for example, https://api.box.com/2.0/files/{file_id}",
+                    "type": "string",
+                    "enum": [
+                        "urn:ietf:params:oauth:token-type:id_token"
+                    ]
+                }
+            },
+            "required": [
+                "grant_type"
+            ]
+        }
+    }
+}

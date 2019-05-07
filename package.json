@@ -1,0 +1,15 @@
+{
+    "name": "box-com-token-connector",
+    "version": "2.0.0",
+    "description": "The Box Token API provides methods to retrieve an access token and revoke an access token. An access token is a data string that enables Box to verify that a request belongs to an authorized session. In the normal order of operations you will being by requesting authentication from the Box.",
+    "main": "component.json",
+    "dependencies": {
+        "elasticio-node": "0.0.9",
+        "elasticio-sailor-nodejs": "^2.2.1",
+        "swagger-client": "^3.8.22"
+    },
+    "author": {
+        "name": "Deutsche Telekom AG"
+    },
+    "license": "Apache-2.0"
+}
